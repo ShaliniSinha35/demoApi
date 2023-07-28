@@ -1,14 +1,18 @@
-const express=require("express")
-const app =express()
-const cors=require("cors")
+const express = require("express");
+const cors = require("cors")
+const app = express();
 app.use(cors())
-const port=process.env.PORT || 3000;
 const data=require("./data.json")
 
-app.get("/demo/api",(req,res)=>{
-    res.send(data)
-})
+const port = process.env.PORT || 8000
 
-app.listen(port,()=>{
-    console.log("Run Perfectly")
-})
+
+
+app.get("/", (req, res) => {
+  res.send(data);
+});
+
+
+app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
+});
